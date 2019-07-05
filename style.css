@@ -1,0 +1,100 @@
+body {
+	margin: auto 0;   /*<- NO MARGINS ON PAGE*/
+    font-family: Arial;
+}
+
+h1 {
+	color: red;
+	font-weight: bold;
+	font-size: 2.5em;
+	text-align: center;
+	text-decoration: underline;
+}
+
+/* LOADS FONT FROM SERVER ROOT DIRECTORY */
+@font-face {
+	font-family: 'Digital-7';
+	src: url(digital-7_italic.ttf);
+	font-style: italic;
+}
+
+ /* SETS CALCULATOR BODY SIZE AND POSITION */
+.container {
+	height: auto;
+  	display: -ms-grid; /* IE 10 */
+  	display:     grid; /* None yet */
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	justify-content: center;
+	align-items: center;
+	background-color: lightblue;
+	margin: 0 35% 0 35%;
+	border: 5px solid grey;
+	border-radius: 50px;
+	grid-column-gap: 30px;
+	padding: 30px 30px 10px 30px;
+	box-shadow: 0px 1px 20px;
+	-webkit-transform: scale(0.8); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: scale(0.8); /* IE 9 */
+    transform: scale(0.8); /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+/* FIX CALCULATOR BODY WIDTH TO 228PX ON NARROW SCREENS */
+@media only screen and (max-width: 1000px) {
+    .container {
+		width: 228px;
+		margin: 0 auto 0 auto;
+    }
+}
+
+/* SETS DISPLAY SIZE AND POSITION */
+#display {
+	/*style*/
+	text-align: right;
+	background-color: white;
+	border-radius: 20px;
+	border: 2px solid black;
+	padding: 5px 20px 5px 5px;
+	font-size: 3.5em;
+	font-family: 'Digital-7';
+	font-style: italic;
+	grid-column: 1/ 5;
+	/*overflow handling*/
+	white-space: nowrap;
+ 	overflow: hidden;
+  	text-overflow: ellipsis;
+  	max-width: auto;
+}
+
+/* SETS BUTTON SIZE, POSITION */
+.button {
+	cursor:pointer;
+	text-align: center;
+	background-color: grey;
+	justify-content: center;
+	font-size: 2em;
+	font-weight: bold;
+	border-radius: 20px;
+	transition: all 0.3s linear;
+}
+
+/* SETS BUTTON STYLE ON HOVER */
+.button:hover {
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+/* DOUBLE WIDTH BUTTON CLASS*/
+.double {
+	grid-column: 1/3;
+}
+
+/* NO HIGHLIGHTED USER SELECTION */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                     supported by Chrome and Opera */
+}
